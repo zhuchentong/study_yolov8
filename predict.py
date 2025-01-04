@@ -6,6 +6,7 @@ model = YOLO("./runs/segment/train/weights/best.pt")
 
 # 使用模型进行预测
 results = model.predict(source="./data/images/20250104150129.jpg")
+
 # 遍历预测结果
 for result in results:
     boxes = result.boxes
