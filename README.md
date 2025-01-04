@@ -18,10 +18,13 @@ sed -i -e "1ipath: %cd:\=/%" ./YOLOv8Dataset/dataset.yaml
 sed -i -e "1ipath: $(pwd)" ./YOLOv8Dataset/dataset.yaml
 
 # 训练模型
-yolo segment train data=./YOLOv8Dataset/dataset.yaml model=./models/yolov8s-seg.pt epochs=60 imgsz=640
+yolo segment train data=./YOLOv8Dataset/dataset.yaml model=./models/yolov8s-seg.pt epochs=100 imgsz=640
 
 # 验证模型
 yolo segment val data=./YOLOv8Dataset/dataset.yaml model=./runs/segment/train/weights/best.pt
 
 # 导出模型(format可以使用 ncnn | onnx )
 yolo export model=./runs/segment/train/weights/best.pt format=ncnn
+
+# 测试模型
+python predict.py

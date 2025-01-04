@@ -5,7 +5,7 @@ from PIL import Image
 model = YOLO("./runs/segment/train/weights/best.pt")
 
 # 使用模型进行预测
-results = model.predict(source="./data/images/20250104150129.jpg")
+results = model.predict(source="./data/images/0ad3fd10-8e9b-47d7-b7f5-ffdaaae159a6.png")
 
 # 遍历预测结果
 for result in results:
